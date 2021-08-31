@@ -155,4 +155,40 @@ public class UserRegistrationRunner {
 		boolean result = registration.PhoneNum("91 750638533889");
 		Assert.assertEquals(false, result);
 	}
+	
+	//Password
+	@Test
+	public void givenPassword_WhenProper_ShouldReturnTrue() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.Password("Sagarika@56");
+		Assert.assertEquals(true, result);
+		result = registration.Password("sagarikA#2");
+		Assert.assertEquals(true, result);
+		result = registration.Password("sAgarIka+6");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test
+	public void givenPassword_WhenWithNoCaps_ShouldReturnFalse() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.Password("sagarika@33");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenPassword_WhenWithNoSymbol_ShouldReturnFalse() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.Password("Sagarika23");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenPassword_WhenWithLessThanEightLength_ShouldReturnTrue() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.Password("Saga%12");
+		Assert.assertEquals(true, result);
+	}
+	
 }
+
+
