@@ -11,4 +11,9 @@ public class UserRegistration {
 		Pattern pattern = Pattern.compile(fname);
 		return pattern.matcher(fname).matches();
 	}
+	
+	public boolean LastName(String lname) {
+		Pattern pattern = Pattern.compile(lname);
+		return pattern.matcher(lname).matches();
+	}
 }
