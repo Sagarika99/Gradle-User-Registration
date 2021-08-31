@@ -119,4 +119,40 @@ public class UserRegistrationRunner {
 		boolean result = registration.EmailId("sagarika@gmail.com.com.in");
 		Assert.assertEquals(false, result);
 	}
+	
+	//mobile number
+	@Test
+	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.PhoneNum("91 7506385338");
+		Assert.assertEquals(true, result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenWithNoSpace_ShouldReturnFalse() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.PhoneNum("917506385338");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenLessThanTenDigits_ShouldReturnFalse() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.PhoneNum("91 75063838");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenWithNoCountryCode_ShouldReturnFalse() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.PhoneNum("7506385338");
+		Assert.assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenMoreThanTenDigits_ShouldReturnFalse() {
+		UserRegistration registration = new UserRegistration();
+		boolean result = registration.PhoneNum("91 750638533889");
+		Assert.assertEquals(false, result);
+	}
 }

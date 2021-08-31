@@ -7,6 +7,7 @@ public class UserRegistration {
 
 	public static final String Name_Pattern = "^[A-Z][a-z]{3,}";
 	public static final String Email_ID = "^([a-z0-9]{3,}[\\.-]?[a-z0-9]{3,})@([a-z\\d]{3,})[\\.]?([a-z]{3})$";
+	public static final String Phone_Num = "^[0-9]{2}\\s[0-9]{10}$";
 	
 	public boolean FirstName(String fname) {
 		Pattern pattern = Pattern.compile(Name_Pattern);
@@ -21,5 +22,10 @@ public class UserRegistration {
 	public boolean EmailId(String email) {
 		Pattern pattern = Pattern.compile(Email_ID);
 		return pattern.matcher(email).matches();
+	}
+	
+	public boolean PhoneNum(String phoneNum) {
+		Pattern pattern = Pattern.compile(Phone_Num);
+		return pattern.matcher(phoneNum).matches();
 	}
 }
