@@ -46,7 +46,7 @@ public class EmailRunner {
 	}
 	
 	@Test
-	public void givenEmailId_ShouldReturnProperResult() {
+	public void givenEmailId_ShouldReturnProperResult() throws UserRegistrationException {
 		System.out.println("Email " +emailId+ " is valid: " +expectedResult);
 		Assert.assertEquals(expectedResult, registration.EmailId(emailId));
 	}
