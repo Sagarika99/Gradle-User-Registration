@@ -3,6 +3,11 @@ package com.bridgelabz.userregistrationgradle;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
+@FunctionalInterface
+interface Registration{
+	String validate(String input);
+}
+
 public class UserRegistration {
 
 	public static final String Name_Pattern = "^[A-Z][a-z]{3,}";
@@ -10,13 +15,13 @@ public class UserRegistration {
 	public static final String Phone_Num = "^[0-9]{2}\\s[0-9]{10}$";
 	public static final String Password = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&+=()]){8,20}.*$";
 	
-	public String FirstName(String fname) throws UserRegistrationException {
+	public String FirstName(String input) throws UserRegistrationException {
 		Pattern pattern = Pattern.compile(Name_Pattern);
 		try {
-			if(fname.length()<=0) {
+			if(input.length()<=0) {
 				throw new UserRegistrationException("First Name cannot be empty");
 			}
-			if (pattern.matcher(fname).matches()) {
+			if (pattern.matcher(input).matches()) {
 				return "First Name is Valid";
 			}
 			return "Invalid First Name";
@@ -26,13 +31,13 @@ public class UserRegistration {
 		}
 	}
 	
-	public String LastName(String lname) throws UserRegistrationException{
+	public String LastName(String input) throws UserRegistrationException{
 		Pattern pattern = Pattern.compile(Name_Pattern);
 		try {
-			if(lname.length()<=0) {
+			if(input.length()<=0) {
 				throw new UserRegistrationException("Last Name cannot be empty");
 			}
-			if (pattern.matcher(lname).matches()) {
+			if (pattern.matcher(input).matches()) {
 				return "Last Name is Valid";
 			}
 			return "Invalid Last Name";
@@ -42,13 +47,13 @@ public class UserRegistration {
 		}
 	}
 	
-	public String EmailId(String email) throws UserRegistrationException{
+	public String EmailId(String input) throws UserRegistrationException{
 		Pattern pattern = Pattern.compile(Email_ID);
 		try {
-			if(email.length()<=0) {
+			if(input.length()<=0) {
 				throw new UserRegistrationException("Email cannot be empty");
 			}
-			if (pattern.matcher(email).matches()) {
+			if (pattern.matcher(input).matches()) {
 				return "Email is Valid";
 			}
 			return "Invalid Email";
@@ -58,13 +63,13 @@ public class UserRegistration {
 		}
 	}
 	
-	public String PhoneNum(String phoneNum) throws UserRegistrationException{
+	public String PhoneNum(String input) throws UserRegistrationException{
 		Pattern pattern = Pattern.compile(Phone_Num);
 		try {
-			if(phoneNum.length()<=0) {
+			if(input.length()<=0) {
 				throw new UserRegistrationException("Phone Number cannot be empty");
 			}
-			if (pattern.matcher(phoneNum).matches()) {
+			if (pattern.matcher(input).matches()) {
 				return "Phone Number is Valid";
 			}
 			return "Invalid Phone Number";
@@ -74,13 +79,13 @@ public class UserRegistration {
 		}
 	}
 	
-	public String Password(String password) throws UserRegistrationException{
+	public String Password(String input) throws UserRegistrationException{
 		Pattern pattern = Pattern.compile(Password);
 		try {
-			if(password.length()<=0) {
+			if(input.length()<=0) {
 				throw new UserRegistrationException("Password cannot be empty");
 			}
-			if (pattern.matcher(password).matches()) {
+			if (pattern.matcher(input).matches()) {
 				return "Password is Valid";
 			}
 			return "Invalid Password";
