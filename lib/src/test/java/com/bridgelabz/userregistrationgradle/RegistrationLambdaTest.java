@@ -1,5 +1,10 @@
 package com.bridgelabz.userregistrationgradle;
 
+@FunctionalInterface
+interface Registration{
+	String validate(String input);
+}
+
 public class RegistrationLambdaTest {
 
 	public static void main(String[] args) {

@@ -3,11 +3,6 @@ package com.bridgelabz.userregistrationgradle;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-@FunctionalInterface
-interface Registration{
-	String validate(String input);
-}
-
 public class UserRegistration {
 
 	public static final String Name_Pattern = "^[A-Z][a-z]{3,}";
